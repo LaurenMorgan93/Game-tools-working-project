@@ -137,7 +137,7 @@ public class OxygenBar : MonoBehaviour
     public void animateHelmetON(){
         if(playerYPosition >= oxyDepletionHeight && !HelmetWorn && !InSafeZone)
         {
-             HelmetAnim.SetTrigger("Worn");
+             HelmetAnim.SetTrigger("ON");
              HelmetWorn = true;
         }
 
@@ -147,7 +147,7 @@ public class OxygenBar : MonoBehaviour
     public void animateHelmetOFF(){
         if(playerYPosition < oxyDepletionHeight && HelmetWorn && InSafeZone)
         {
-            HelmetAnim.SetTrigger("Not Worn");
+            HelmetAnim.SetTrigger("OFF");
             HelmetWorn = false;
         }
     }
