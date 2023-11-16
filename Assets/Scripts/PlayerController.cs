@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     public GameObject Collectable1;
     public GameObject Collectable2;
     public GameObject Collectable3;
+    public GameObject chipUISprite;
 
     void Start()
     {
@@ -16,6 +17,7 @@ public class PlayerController : MonoBehaviour
         Collectable1.SetActive(true);
         Collectable2.SetActive(true);
         Collectable3.SetActive(true);
+        chipUISprite.SetActive(true);   
 
         // Load the player's position from PlayerPrefs and respawn them
         RespawnPlayer();
@@ -47,6 +49,7 @@ public class PlayerController : MonoBehaviour
             {
                 audioScript.PlayAudioClip("Collect");
                 Collectable1.SetActive(false);
+                chipUISprite.SetActive(false);
             }
             Destroy(other.gameObject);
         }
