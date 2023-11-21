@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
@@ -10,6 +12,9 @@ public class PlayerController : MonoBehaviour
     public GameObject Collectable2;
     public GameObject Collectable3;
     public GameObject chipUISprite;
+    public GameObject RocketStatusPanel;
+    private bool allItemsCollected;
+    public TextMeshProUGUI rocketText;
 
     void Start()
     {
@@ -18,6 +23,7 @@ public class PlayerController : MonoBehaviour
         Collectable2.SetActive(true);
         Collectable3.SetActive(true);
         chipUISprite.SetActive(true);   
+        RocketStatusPanel.SetActive(false);
 
         // Load the player's position from PlayerPrefs and respawn them
         RespawnPlayer();
@@ -38,6 +44,11 @@ public class PlayerController : MonoBehaviour
         {
             oxygenManagementScript.InSafeZone = false;
         }
+
+        if(other.gameObject.tag == "Rocket")
+        {
+            RocketStatusPanel.SetActive(false);
+        }
     }
 
     public void OnTriggerEnter(Collider other)
@@ -50,8 +61,24 @@ public class PlayerController : MonoBehaviour
                 audioScript.PlayAudioClip("Collect");
                 Collectable1.SetActive(false);
                 chipUISprite.SetActive(false);
+                Destroy(other.gameObject);
             }
-            Destroy(other.gameObject);
+            
+            if(other.gameObject.name == "Wrench")
+            {
+                audioScript.PlayAudioClip("Collect");
+                Collectable2.SetActive(false);
+               // wrenchUISprite.setActive(false);
+                Destroy(other.gameObject);
+            }
+
+            if (other.gameObject.name == "Gyro")
+            {
+                audioScript.PlayAudioClip("Collect");
+                Collectable3.SetActive(false);
+                //gyroUISprite.setActive(false);
+                Destroy(other.gameObject);
+            }
         }
 
         if (other.gameObject.tag == "Mine")
@@ -59,6 +86,20 @@ public class PlayerController : MonoBehaviour
             oxygenManagementScript.MineOxygenDecrease(50);
             audioScript.PlayAudioClip("Explode");
             Destroy(other.gameObject);
+        }
+
+        if(other.gameObject.tag == "Rocket")
+        {
+            RocketStatusPanel.SetActive(true);
+            rocketText.text = "Warning! Repair Parts Needed";
+
+            if (allItemsCollected)
+            {
+                rocketText.text = "Ship repaired!";
+
+            }
+
+       
         }
     }
 
