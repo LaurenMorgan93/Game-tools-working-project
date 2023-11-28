@@ -50,6 +50,7 @@ public class PlayerController : MonoBehaviour
             RocketStatusPanel.SetActive(false);
         }
     }
+    
 
     public void OnTriggerEnter(Collider other)
     {
@@ -98,8 +99,6 @@ public class PlayerController : MonoBehaviour
                 rocketText.text = "Ship repaired!";
 
             }
-
-       
         }
     }
 
