@@ -3,15 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
     public OxygenBar oxygenManagementScript;
+    public SceneMover sceneChangingScript;
     public AudioManager audioScript;
     public GameObject Collectable1;
     public GameObject Collectable2;
     public GameObject Collectable3;
     public GameObject chipUISprite;
+    public GameObject wrenchUISprite;
+    public GameObject GyroUISprite;
     public GameObject RocketStatusPanel;
     private bool allItemsCollected;
     public TextMeshProUGUI rocketText;
@@ -19,10 +23,13 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         oxygenManagementScript = FindObjectOfType<OxygenBar>();
+        
         Collectable1.SetActive(true);
         Collectable2.SetActive(true);
         Collectable3.SetActive(true);
-        chipUISprite.SetActive(true);   
+        chipUISprite.SetActive(true);
+        wrenchUISprite.SetActive(true);
+        GyroUISprite.SetActive(true);
         RocketStatusPanel.SetActive(false);
 
         // Load the player's position from PlayerPrefs and respawn them
@@ -69,7 +76,7 @@ public class PlayerController : MonoBehaviour
             {
                 audioScript.PlayAudioClip("Collect");
                 Collectable2.SetActive(false);
-               // wrenchUISprite.setActive(false);
+               wrenchUISprite.SetActive(false);
                 Destroy(other.gameObject);
             }
 
@@ -77,7 +84,7 @@ public class PlayerController : MonoBehaviour
             {
                 audioScript.PlayAudioClip("Collect");
                 Collectable3.SetActive(false);
-                //gyroUISprite.setActive(false);
+                GyroUISprite.SetActive(false);
                 Destroy(other.gameObject);
             }
         }
@@ -96,7 +103,7 @@ public class PlayerController : MonoBehaviour
 
             if (allItemsCollected)
             {
-                rocketText.text = "Ship repaired!";
+                SceneManager.LoadScene("Final Cutscene");
 
             }
         }
