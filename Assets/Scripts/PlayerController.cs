@@ -3,30 +3,45 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
     public OxygenBar oxygenManagementScript;
+    public SceneMover sceneChangingScript;
     public AudioManager audioScript;
     public GameObject Collectable1;
     public GameObject Collectable2;
     public GameObject Collectable3;
     public GameObject chipUISprite;
+    public GameObject wrenchUISprite;
+    public GameObject GyroUISprite;
     public GameObject RocketStatusPanel;
     private bool allItemsCollected;
+    private bool wrenchCollected;
+    private bool gyroCollected;
+    private bool chipCollected;
     public TextMeshProUGUI rocketText;
 
     void Start()
     {
         oxygenManagementScript = FindObjectOfType<OxygenBar>();
+        
         Collectable1.SetActive(true);
         Collectable2.SetActive(true);
         Collectable3.SetActive(true);
-        chipUISprite.SetActive(true);   
+        chipUISprite.SetActive(true);
+        wrenchUISprite.SetActive(true);
+        GyroUISprite.SetActive(true);
         RocketStatusPanel.SetActive(false);
 
         // Load the player's position from PlayerPrefs and respawn them
         RespawnPlayer();
+    }
+
+    public void Update()
+    {
+       checkForCompletion();
     }
 
     public void OnTriggerStay(Collider other)
@@ -62,6 +77,7 @@ public class PlayerController : MonoBehaviour
                 audioScript.PlayAudioClip("Collect");
                 Collectable1.SetActive(false);
                 chipUISprite.SetActive(false);
+                chipCollected = true;
                 Destroy(other.gameObject);
             }
             
@@ -69,7 +85,8 @@ public class PlayerController : MonoBehaviour
             {
                 audioScript.PlayAudioClip("Collect");
                 Collectable2.SetActive(false);
-               // wrenchUISprite.setActive(false);
+                wrenchCollected = true;
+               wrenchUISprite.SetActive(false);
                 Destroy(other.gameObject);
             }
 
@@ -77,7 +94,8 @@ public class PlayerController : MonoBehaviour
             {
                 audioScript.PlayAudioClip("Collect");
                 Collectable3.SetActive(false);
-                //gyroUISprite.setActive(false);
+                GyroUISprite.SetActive(false);
+                gyroCollected = true;
                 Destroy(other.gameObject);
             }
         }
@@ -96,7 +114,7 @@ public class PlayerController : MonoBehaviour
 
             if (allItemsCollected)
             {
-                rocketText.text = "Ship repaired!";
+                SceneManager.LoadScene("Final Cutscene");
 
             }
         }
@@ -112,5 +130,13 @@ public class PlayerController : MonoBehaviour
         Vector3 respawnPosition = new Vector3(playerPosX, playerPosY, playerPosZ);
 
         transform.position = respawnPosition;
+    }
+
+    public void checkForCompletion()
+    {
+        if(chipCollected && wrenchCollected && gyroCollected)
+        {
+            allItemsCollected = true;
+        }
     }
 }
