@@ -18,6 +18,9 @@ public class PlayerController : MonoBehaviour
     public GameObject GyroUISprite;
     public GameObject RocketStatusPanel;
     private bool allItemsCollected;
+    private bool wrenchCollected;
+    private bool gyroCollected;
+    private bool chipCollected;
     public TextMeshProUGUI rocketText;
 
     void Start()
@@ -34,6 +37,11 @@ public class PlayerController : MonoBehaviour
 
         // Load the player's position from PlayerPrefs and respawn them
         RespawnPlayer();
+    }
+
+    public void Update()
+    {
+       checkForCompletion();
     }
 
     public void OnTriggerStay(Collider other)
@@ -69,6 +77,7 @@ public class PlayerController : MonoBehaviour
                 audioScript.PlayAudioClip("Collect");
                 Collectable1.SetActive(false);
                 chipUISprite.SetActive(false);
+                chipCollected = true;
                 Destroy(other.gameObject);
             }
             
@@ -76,6 +85,7 @@ public class PlayerController : MonoBehaviour
             {
                 audioScript.PlayAudioClip("Collect");
                 Collectable2.SetActive(false);
+                wrenchCollected = true;
                wrenchUISprite.SetActive(false);
                 Destroy(other.gameObject);
             }
@@ -85,6 +95,7 @@ public class PlayerController : MonoBehaviour
                 audioScript.PlayAudioClip("Collect");
                 Collectable3.SetActive(false);
                 GyroUISprite.SetActive(false);
+                gyroCollected = true;
                 Destroy(other.gameObject);
             }
         }
@@ -119,5 +130,13 @@ public class PlayerController : MonoBehaviour
         Vector3 respawnPosition = new Vector3(playerPosX, playerPosY, playerPosZ);
 
         transform.position = respawnPosition;
+    }
+
+    public void checkForCompletion()
+    {
+        if(chipCollected && wrenchCollected && gyroCollected)
+        {
+            allItemsCollected = true;
+        }
     }
 }

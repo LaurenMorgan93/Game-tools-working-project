@@ -7477,15 +7477,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4459864850019384738, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4459864850019384738, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4459864850019384738, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -7.7
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4459864850019384738, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
       propertyPath: m_LocalRotation.w
@@ -14445,7 +14445,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 0.392}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -31758,15 +31758,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8599769018983713621, guid: c5d05816b52e9db47b60c194be0dba88, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -991.2
+      value: -968.9
       objectReference: {fileID: 0}
     - target: {fileID: 8599769018983713621, guid: c5d05816b52e9db47b60c194be0dba88, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 684.2
+      value: 677.7
       objectReference: {fileID: 0}
     - target: {fileID: 8599769018983713621, guid: c5d05816b52e9db47b60c194be0dba88, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1688.2
+      value: -1690.4
       objectReference: {fileID: 0}
     - target: {fileID: 8599769018983713621, guid: c5d05816b52e9db47b60c194be0dba88, type: 3}
       propertyPath: m_LocalRotation.w
@@ -31837,7 +31837,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
