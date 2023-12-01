@@ -65,7 +65,15 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -6150551222269791469, guid: b815f621afdad7344a920a382774bb34, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6150551222269791469, guid: b815f621afdad7344a920a382774bb34, type: 3}
       propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -2288074440442857008, guid: b815f621afdad7344a920a382774bb34, type: 3}
+      propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -2288074440442857008, guid: b815f621afdad7344a920a382774bb34, type: 3}
@@ -73,7 +81,15 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -2248011705730203075, guid: b815f621afdad7344a920a382774bb34, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -2248011705730203075, guid: b815f621afdad7344a920a382774bb34, type: 3}
       propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1513055141773431259, guid: b815f621afdad7344a920a382774bb34, type: 3}
+      propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -1513055141773431259, guid: b815f621afdad7344a920a382774bb34, type: 3}
@@ -83,6 +99,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: b815f621afdad7344a920a382774bb34, type: 3}
       propertyPath: m_Name
       value: meteor2 Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 2873755796534611823, guid: b815f621afdad7344a920a382774bb34, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2873755796534611823, guid: b815f621afdad7344a920a382774bb34, type: 3}
       propertyPath: m_ReceiveShadows

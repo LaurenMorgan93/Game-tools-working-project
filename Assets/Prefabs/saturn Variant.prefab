@@ -64,6 +64,38 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8247034485668316520, guid: c44ab894406268649a91da4e394bd493, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8247034485668316520, guid: c44ab894406268649a91da4e394bd493, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -3267284980937452065, guid: c44ab894406268649a91da4e394bd493, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -3267284980937452065, guid: c44ab894406268649a91da4e394bd493, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1237634293990273336, guid: c44ab894406268649a91da4e394bd493, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1237634293990273336, guid: c44ab894406268649a91da4e394bd493, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 745054391534993231, guid: c44ab894406268649a91da4e394bd493, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 745054391534993231, guid: c44ab894406268649a91da4e394bd493, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c44ab894406268649a91da4e394bd493, type: 3}
       propertyPath: m_Name
       value: saturn Variant
