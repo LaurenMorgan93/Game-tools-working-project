@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
 
+
 public class PlayerController : MonoBehaviour
 {
     public OxygenBar oxygenManagementScript;
@@ -41,7 +42,7 @@ public class PlayerController : MonoBehaviour
 
     public void Update()
     {
-       checkForCompletion();
+      
     }
 
     public void OnTriggerStay(Collider other)
@@ -79,6 +80,7 @@ public class PlayerController : MonoBehaviour
                 chipUISprite.SetActive(false);
                 chipCollected = true;
                 Destroy(other.gameObject);
+                checkForCompletion();
             }
             
             if(other.gameObject.name == "Wrench")
@@ -88,6 +90,7 @@ public class PlayerController : MonoBehaviour
                 wrenchCollected = true;
                wrenchUISprite.SetActive(false);
                 Destroy(other.gameObject);
+                checkForCompletion();
             }
 
             if (other.gameObject.name == "Gyro")
@@ -97,6 +100,7 @@ public class PlayerController : MonoBehaviour
                 GyroUISprite.SetActive(false);
                 gyroCollected = true;
                 Destroy(other.gameObject);
+                checkForCompletion();
             }
         }
 
@@ -137,6 +141,14 @@ public class PlayerController : MonoBehaviour
         if(chipCollected && wrenchCollected && gyroCollected)
         {
             allItemsCollected = true;
+
         }
+        if (allItemsCollected)
+        {
+            SceneManager.LoadScene("Final Cutscene");
+
+        }
+
+
     }
 }
