@@ -9,8 +9,8 @@ public class OxygenBar : MonoBehaviour
     private Slider oxygenSlider; 
     private GameObject player;
     private float playerYPosition; // Store the player's Y position here
-    private float maxOxygenLevel; 
-    private float currentOxygenLevel;
+    public float maxOxygenLevel; 
+    public float currentOxygenLevel;
     public Color maxColor = Color.green; // Color when the slider is at its maximum
     public Color minColor = Color.red; // Color when the slider is below 10%
     public float decreaseRate; // Rate at which maxOxygenLevel decreases

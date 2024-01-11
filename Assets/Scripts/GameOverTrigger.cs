@@ -5,12 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class GameOverTrigger : MonoBehaviour
 {
-    
+    public PlayerController controller;
+
+    public void Start()
+    {
+        //controller = GetComponent<PlayerController>();
+    }
     public void Update()
     {
         if(Input.GetKeyDown(KeyCode.R))
         {
-            reload();
+            controller.RespawnPlayer();
         }
     }
  
@@ -19,7 +24,7 @@ public class GameOverTrigger : MonoBehaviour
     if(other.gameObject.tag == ("Player"))
     {
         Debug.Log("Collided with Player");
-        SceneManager.LoadScene("LaurenScene");
+        controller.RespawnPlayer();
     }
  }
 

@@ -11,6 +11,14 @@ TagManager:
   - SafeZone
   - Collectable
   - Rocket
+  - oxygenPoint
+  - oxyPoint1
+  - oxyPoint2
+  - oxyPoint3
+  - oxyPoint4
+  - oxyPoint5
+  - oxyPoint6
+  - oxyPoint7
   layers:
   - Default
   - TransparentFX

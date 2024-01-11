@@ -19,13 +19,26 @@ public class PlayerController : MonoBehaviour
     public GameObject GyroUISprite;
     public GameObject RocketStatusPanel;
     private bool allItemsCollected;
-    private bool wrenchCollected;
-    private bool gyroCollected;
-    private bool chipCollected;
+    public bool wrenchCollected;
+    public bool gyroCollected;
+    public bool chipCollected;
     public TextMeshProUGUI rocketText;
+
+    public Vector3 checkpoint;
+    public Vector3 tempCheckpoint;
+    public OxygenBar oxygenLevel;
+    public GameObject doomPanel;
+    public GameObject oxyDeathPanel;
+
+
+
+
 
     void Start()
     {
+        //oxygenLevel = GetComponent<OxygenBar>();
+
+        //uniqueCheckpoint = FindGameObjectsWithTag("oxyegnPoint");
         oxygenManagementScript = FindObjectOfType<OxygenBar>();
         
         Collectable1.SetActive(true);
@@ -38,6 +51,7 @@ public class PlayerController : MonoBehaviour
 
         // Load the player's position from PlayerPrefs and respawn them
         RespawnPlayer();
+
     }
 
     public void Update()
@@ -49,7 +63,7 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.tag == "SafeZone")
         {
-            Debug.Log(other.gameObject.tag);
+            //Debug.Log(other.gameObject.tag);
             oxygenManagementScript.InSafeZone = true;
         }
     }
@@ -122,11 +136,41 @@ public class PlayerController : MonoBehaviour
 
             }
         }
+        if (other.gameObject.tag == "oxyPoint1")
+        {
+            checkpoint = new Vector3(7.88f, 44.61f, -138.75f);
+        }
+        if (other.gameObject.tag == "oxyPoint2")
+        {
+            checkpoint = new Vector3(0, 0, 0);
+        }
+        if (other.gameObject.tag == "oxyPoint3")
+        {
+            checkpoint = new Vector3(0, 0, 0);
+        }
+        if (other.gameObject.tag == "oxyPoint4")
+        {
+            checkpoint = new Vector3(0, 0, 0);
+        }
+        if (other.gameObject.tag == "oxyPoint5")
+        {
+            checkpoint = new Vector3(0, 0, 0);
+        }
+        if (other.gameObject.tag == "oxyPoint6")
+        {
+            checkpoint = new Vector3(0, 0, 0);
+        }
+        if (other.gameObject.tag == "oxyPoint7")
+        {
+            checkpoint = new Vector3(0,0,0);
+        }
+
     }
 
     // Add this method to respawn the player at the last checkpoint
-  public   void RespawnPlayer()
+    public void RespawnPlayer()
     {
+        /*
         float playerPosX = PlayerPrefs.GetFloat("PlayerPosX");
         float playerPosY = PlayerPrefs.GetFloat("PlayerPosY");
         float playerPosZ = PlayerPrefs.GetFloat("PlayerPosZ");
@@ -134,6 +178,12 @@ public class PlayerController : MonoBehaviour
         Vector3 respawnPosition = new Vector3(playerPosX, playerPosY, playerPosZ);
 
         transform.position = respawnPosition;
+        */
+        Debug.Log("respawn");
+        transform.position = checkpoint;
+        oxygenLevel.currentOxygenLevel = oxygenLevel.maxOxygenLevel;
+        doomPanel.SetActive(false);
+        oxyDeathPanel.SetActive(false);
     }
 
     public void checkForCompletion()
@@ -143,11 +193,7 @@ public class PlayerController : MonoBehaviour
             allItemsCollected = true;
 
         }
-        if (allItemsCollected)
-        {
-            SceneManager.LoadScene("Final Cutscene");
-
-        }
+        
 
 
     }

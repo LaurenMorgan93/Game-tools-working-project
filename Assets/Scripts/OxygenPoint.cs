@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class OxygenPoint : MonoBehaviour
 {
-
     public AudioManager audioScript;
+    //public Vector3 checkpointCoords;
 
     private void OnTriggerStay(Collider other)
     {
@@ -31,8 +31,6 @@ public class OxygenPoint : MonoBehaviour
             //PlayerPrefs.SetFloat("PlayerPosZ", other.transform.position.z);
             PlayOxyUPSound();
 
-
-
         }
     }
 
@@ -42,4 +40,6 @@ public class OxygenPoint : MonoBehaviour
         audioScript.PlayAudioClip("Oxy");
 
     }
+
+    
 }
