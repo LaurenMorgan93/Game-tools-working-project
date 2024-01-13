@@ -153,6 +153,7 @@ public class PlayerController : MonoBehaviour
         oxygenLevel.currentOxygenLevel = oxygenLevel.maxOxygenLevel;
         doomPanel.SetActive(false);
         oxyDeathPanel.SetActive(false);
+        Time.timeScale = 1f;
     }
 
     public void checkForCompletion()
